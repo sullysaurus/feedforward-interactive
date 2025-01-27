@@ -70,20 +70,6 @@ def main():
     
     output_size = st.sidebar.slider("Output Layer Size", 1, 10, 2)
     
-    # Create and display the network
-    model = FeedForwardNN(input_size, hidden_layers, output_size)
-    
-    # Display network information
-    st.write("### Network Architecture")
-    st.write(f"Input Layer: {input_size} neurons")
-    for i, hidden_size in enumerate(hidden_layers):
-        st.write(f"Hidden Layer {i+1}: {hidden_size} neurons")
-    st.write(f"Output Layer: {output_size} neurons")
-    
-    # Calculate total parameters
-    total_params = sum(p.numel() for p in model.parameters())
-    st.write(f"Total Parameters: {total_params}")
-    
     # Visualize the network
     plt = visualize_network(input_size, hidden_layers, output_size)
     st.pyplot(plt)
